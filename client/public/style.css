@@ -1,0 +1,200 @@
+/*header*/
+.header{
+    background-color: #BF395D;
+    height: 70px;
+    margin: auto -16px;
+    padding-top: 20px;
+    box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.3);
+}
+
+body{
+    background-color: #D9A78B;
+    color: #fff;
+    font-family: 'Balsamiq Sans';
+    font-weight: bold;
+    font-size: 35px;
+    text-align: center;
+    margin: 0;
+    overflow-x: hidden;
+}
+
+
+/*Create secret section*/
+.cards{
+    display: inline-block;
+    min-height: 20vh;
+    flex-direction: column;
+}
+
+.secret-header{
+    width: 350px;
+    height: 50px;
+    background-color: #F2B3B9;
+    align-items: center;
+    margin: 80px auto 30px auto;
+    justify-content: center;
+    border-radius: 7%;
+}
+
+form{
+    height: 350px;
+    border-radius: 7px;
+    box-shadow: 0 1px 5px rgb(138, 137, 137);
+    width: 500px;
+    margin: auto;
+    padding-top: 60px;
+    text-align: center;
+    position: relative;
+}
+
+input{
+    display: block !important;
+    margin-left: auto;
+    margin-right: auto;
+    width: 430px;
+    margin-bottom: 20px;
+    border-radius: 10%;
+    height: 30px;
+    font-family: tahoma;
+    font-size: 15px;
+}
+
+textarea{
+    border-radius: 10%;
+    resize: none;
+    padding: 20px;
+    height: 200px;
+    width: 400px;
+    -webkit-box-shadow: inset 2px 2px 2px 0px #dddddd;
+    -moz-box-shadow: inset 2px 2px 2px 0px #dddddd;
+    box-shadow: inset 2px 2px 2px 0px #dddddd;
+    font-family: tahoma;
+    font-size: 15px;
+    outline: 0;
+    left: 25px;
+    position: relative;
+
+}
+
+.button-save{
+    background: #F2B3B9;
+    color: #fff;
+    border: none;
+    border-radius: 50%;
+    width: 50px;
+    height: 50px;
+    font-size: 15px;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.3);
+    position: relative;
+    right: 10px;
+}
+
+.button-save:hover {
+    background-color: #F2B3B6;
+    box-shadow: 0px 15px 20px #F2B3B9;
+    color: #fff;
+}
+
+
+/*This is the css section for secret list section*/
+.card-section{
+    float: left;
+    width: 250px;
+    height: 170px;
+    /*to display elements horizontally*/
+    border-radius: 7px;
+    box-shadow: 0 2px 5px #ccc;
+    margin: 20px 20px 20px 20px;
+    background-color: #BF395D;
+}
+
+.secret-title{
+padding-bottom: 40px;
+}
+
+h5, h6{
+    font-family: tahoma;
+    font-size: 18px;
+    margin-bottom: 20px;
+}
+
+h6{
+    padding: 12px;
+}
+
+
+.btn-open{
+    background-color:#F2B3B9;
+    width: 250px;
+    height: 60px;
+    box-shadow: 0px 15px 20px #F2B3B9;
+    font-size: 18px;
+    letter-spacing: 2px;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    outline:none;
+    color: white;
+    border: none;
+}
+
+.btn-open:hover {
+    background-color: #F2B3D9;
+    color: #fff;
+    border: none;
+    outline:none;
+}
+
+/*footer section css*/
+footer{
+    width: 100%;
+    height: 100px;
+    background-color: #BF395D;
+    margin-top: 150px;
+    padding-top: 50px;
+}
+
+.copyright{
+    font-size: 18px;
+    font-weight: 400;
+}
+
+/*success popup styles*/
+.popup-title{
+    background-color: #BF395D;
+    width: 40%;
+    height: 180px;
+    border-radius: 20px;
+    font-size: 20px;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    margin: auto auto;
+    position:fixed; 
+    top: calc(35% - 25px); 
+    left: calc(33.5% - 50px);  
+}
+
+.success-text{
+    text-align: center;
+    vertical-align: middle;
+    line-height: 70px;  
+    height: 60px;
+}
+
+.btn{
+    width: 112px;
+    height: 37px;
+    background-color: #F2B3B9;
+
+}
+
+.success{
+    text-transform: capitalize;
+}
+
+
+
+
+
+
+
+
+
+
