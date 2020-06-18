@@ -20,12 +20,6 @@ body{
 
 
 /*Create secret section*/
-.cards{
-    display: inline-block;
-    min-height: 20vh;
-    flex-direction: column;
-}
-
 .secret-header{
     width: 350px;
     height: 50px;
@@ -44,7 +38,7 @@ form{
     margin: auto;
     padding-top: 60px;
     text-align: center;
-    position: relative;
+    position: absolute;
 }
 
 input{
@@ -71,15 +65,15 @@ textarea{
     font-family: tahoma;
     font-size: 15px;
     outline: 0;
-    left: 25px;
     position: relative;
-
+    left: 25px;
 }
 
 .button-save{
     background: #F2B3B9;
     color: #fff;
     border: none;
+    outline: none;
     border-radius: 50%;
     width: 50px;
     height: 50px;
@@ -87,6 +81,7 @@ textarea{
     box-shadow: 0 1px 3px rgba(0, 0, 0, 0.3);
     position: relative;
     right: 10px;
+    margin-top: 15px;
 }
 
 .button-save:hover {
@@ -98,7 +93,9 @@ textarea{
 
 /*This is the css section for secret list section*/
 .card-section{
-    float: left;
+    display: inline-block;
+    min-height: 20vh;
+    flex-direction: column;
     width: 250px;
     height: 170px;
     /*to display elements horizontally*/
@@ -109,21 +106,27 @@ textarea{
 }
 
 .secret-title{
-padding-bottom: 40px;
+height: 80px;
 }
 
-h5, h6{
+.title{
     font-family: tahoma;
-    font-size: 18px;
-    margin-bottom: 20px;
+    font-size: 16px;
+    margin-bottom: 0;
 }
 
 h6{
-    padding: 12px;
+    top: 12px;
+    font-family: tahoma;
+    font-size: 20px;
+    margin-bottom: 20px;
+    position: relative;
+    right: 20px;
+    left: 0;
 }
 
-
 .btn-open{
+    margin-top: 4px;
     background-color:#F2B3B9;
     width: 250px;
     height: 60px;
@@ -141,6 +144,21 @@ h6{
     color: #fff;
     border: none;
     outline:none;
+}
+
+.characters{
+    font-size: 13px;
+    font-weight: bold;
+    letter-spacing: 1px;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.characters-container{
+    width: 200px;
+    position: relative;
+    margin: auto;
+    bottom: 30px;
+    margin-left: 420px;
 }
 
 /*footer section css*/

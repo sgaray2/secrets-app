@@ -6,12 +6,14 @@ class CreateSecret extends Component {
     super(props);
     this.state={
       title: "",
-      content: ""
+      content: "",
+      maxCharacters: ""
     }
   }
 
 /*this is to handle the inputs and save into states*/
 handleChange = async event => {
+  this.setState({maxCharacters: event.target.value});
 
         //destructuring the inputs
         const {name, value}= event.target;
@@ -22,7 +24,7 @@ handleChange = async event => {
     }
 
 /*this is the function for add button*/
-addSecret = async () =>{
+addSecret = async (e) =>{
   const {title, content}= this.state;
   const data= {title,content}
 
@@ -32,6 +34,9 @@ addSecret = async () =>{
       "Content-Type": "application/json"
     },
     body: JSON.stringify(data)
+  })
+  .then(()=> {
+    this.setState({title: "", content: "", maxCharacters: ""})
   })
 }
 
@@ -45,23 +50,32 @@ addSecret = async () =>{
         <div className="form">
           <input 
           type="text" 
+          maxLength="40"
           onChange={this.handleChange}
           name="title"
           required
           autoComplete="off"
           value= {this.state.title}
-          placeholder="Secret title">
+          placeholder="What is your secret about?">
           </input>
           <textarea
             type="text"
             onChange={this.handleChange}
             name="content"
             required
+            maxLength="240"
             value= {this.state.content}
-            placeholder="Type more details about your secret..."
-          ></textarea>
+            placeholder="Hmmm! Type more details..."
+          >
+          </textarea>
           <button className="button-save" onClick={this.addSecret}>Save</button>
+          <div className="characters-container row">
+          <p className="characters col-lg-4">
+          Characters: {this.state.maxCharacters.length}/240
+          </p>
+          </div>
         </div>
+        
         </div>
         </div>
   );
