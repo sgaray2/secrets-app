@@ -85,7 +85,7 @@ textarea{
 }
 
 .button-save:hover {
-    background-color: #F2B3B6;
+    background-color: rgb(216, 160, 195);;
     box-shadow: 0px 15px 20px #F2B3B9;
     color: #fff;
 }
@@ -140,7 +140,7 @@ h6{
 }
 
 .btn-open:hover {
-    background-color: #F2B3D9;
+    background-color: rgb(216, 160, 195);;
     color: #fff;
     border: none;
     outline:none;
@@ -200,12 +200,82 @@ footer{
     width: 112px;
     height: 37px;
     background-color: #F2B3B9;
-
 }
 
 .success{
     text-transform: capitalize;
 }
+
+/**********************************************/
+/*secret details css*/
+.container{
+    background-color: #BF395D;
+    width: 60%;
+    margin: auto; 
+    height: 48px;
+    display: flex;
+}
+
+.navbar{
+    list-style: none;
+    display: inline-block;
+    font-size: 20px;
+}
+
+.data{
+    position: relative;
+    width: 60%;
+    margin: auto;
+    border: 2px;
+    box-shadow: 0 0 10px 0 #BF395D;
+    height: 200px;
+}
+
+
+.handleSecret{
+    width: 100px;
+    background-color: #F2B3B9;
+    color: white;
+    border: none;
+    height: 100%;
+    padding: 0;
+    font-size: 20px;
+    font-family: 'Balsamiq Sans';
+    outline: none;
+}
+
+.handleSecret:hover{
+    background-color: rgb(216, 160, 195);
+}
+
+.secretTitle{
+    margin-top: 30px;
+    padding-top: 20px;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-size: 23px;
+}
+
+.secretContent{
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-size: 18px;
+}
+
+.goBack{
+    width: 100px;
+    background-color: #F2B3B9;
+    color: white;
+    border: none;
+    height: 50px;
+    margin-top: 20px;
+    font-size: 20px;
+    font-family: 'Balsamiq Sans';
+    outline: none;
+}
+
+.goBack:hover {
+background-color: rgb(216, 160, 195);
+}
+
 
 
 

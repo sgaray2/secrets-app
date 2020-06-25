@@ -57,21 +57,62 @@ app
 
   /*Defining the route for secret details*/
   app
-  .route("/details/:id")
+  .route("/:id")
   .get((req, res) => {
-    const requestedId= req.params.id;
-
-    Secret.findOne({_id: requestedId}, function(err,secretFound){
+    Secret.findOne({_id: req.params.id}, (err, secretFound) =>{
       if(err){
         res.status(404).json({
           success: false,
           message: "an error ocurred while trying to get the register"
-        });
+        })
       } else {
-        res.send(secretFound);
+        return res.status(200).json(secretFound);
+      }
+    }); 
+  });
+
+  /*update secrets endpoint*/
+  app.route("/edit/:id")
+  .patch((req,res) => {
+  
+  Secret.updateOne(
+    { "_id": req.params.id},
+    {$set: req.body})
+    .then((error) => {
+      if(!error) {
+        res.status(200).json({
+          success: true,
+          message: "Your secret has been updated succesfully"
+        })
+      } else {
+        res.status(400).json({
+          success: false,
+          message: "There was an error while trying to update the secret, please try again"
+        })
       }
     });
   });
+
+  /*delete secrets endpoint*/
+app.route("/:id") 
+.delete((req,res) => {
+  Secret.deleteOne(
+    {"_id": req.params.id},
+    function(error) {
+      if(!error) {
+        res.status(200).json({
+          success: true,
+          message: "The secret has been succesfully deleted"
+        })
+      } else {
+        res.status(400).json({
+          success: false,
+          message: "There was an error while trying to delete the secret, please try again"
+        })
+      }
+    });
+});
+
 
 app.listen(port, () => {
   console.log(`Server is running on port ${port}`);

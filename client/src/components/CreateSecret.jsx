@@ -1,5 +1,6 @@
 import React, { Component} from "react";
-
+import SuccessPopup from "./SucessPopup";
+import ErrorPopup from "./ErrorPopup";
 
 class CreateSecret extends Component {
   constructor(props) {
@@ -7,7 +8,9 @@ class CreateSecret extends Component {
     this.state={
       title: "",
       content: "",
-      maxCharacters: ""
+      maxCharacters: "",
+      showPopup: false,
+      error: false
     }
   }
 
@@ -23,11 +26,26 @@ handleChange = async event => {
         });
     }
 
+    /*to change the value from false to true and viceversa*/ 
+    togglePopup() {
+      this.setState({
+        showPopup: !this.state.showPopup
+      });
+    }
+
+    /*this is for the complete fields error popup*/ 
+    toggleErrorPopup () {
+      this.setState({error: !this.state.error});
+    }
+
 /*this is the function for add button*/
 addSecret = async (e) =>{
   const {title, content}= this.state;
   const data= {title,content}
 
+  if(this.state.title && this.state.content){
+    this.setState({showPopup: true, error: false})
+   
   fetch("/secrets" , {
     method: "POST",
     headers: {
@@ -38,6 +56,10 @@ addSecret = async (e) =>{
   .then(()=> {
     this.setState({title: "", content: "", maxCharacters: ""})
   })
+}
+else {
+  this.setState({error: true})
+}
 }
 
   render() {
@@ -52,11 +74,12 @@ addSecret = async (e) =>{
           type="text" 
           maxLength="40"
           onChange={this.handleChange}
-          name="title"
           required
+          name="title"
           autoComplete="off"
           value= {this.state.title}
-          placeholder="What is your secret about?">
+          placeholder="What is your secret about?"
+          >
           </input>
           <textarea
             type="text"
@@ -65,17 +88,34 @@ addSecret = async (e) =>{
             required
             maxLength="240"
             value= {this.state.content}
-            placeholder="Hmmm! Type more details..."
-          >
+            placeholder="Hmmm! Type more details...">
           </textarea>
-          <button className="button-save" onClick={this.addSecret}>Save</button>
+          {
+            this.state.showPopup ?
+            <button style={{pointerEvents: "none"}} className="button-save" onClick={this.addSecret}>Save</button>
+            : <button className="button-save" onClick={this.addSecret}>Save</button>
+          }
+          
           <div className="characters-container row">
           <p className="characters col-lg-4">
           Characters: {this.state.maxCharacters.length}/240
           </p>
-          </div>
+          </div>          
         </div>
-        
+        {this.state.showPopup ? 
+          <SuccessPopup
+            closePopup={this.togglePopup.bind(this)}
+          />
+          : null
+        }
+
+        {
+        this.state.error ?
+        <ErrorPopup 
+          closeErrorPopup={this.toggleErrorPopup.bind(this)}
+        /> : null
+
+        }
         </div>
         </div>
   );

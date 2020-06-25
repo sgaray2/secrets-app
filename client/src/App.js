@@ -1,4 +1,4 @@
-import React, { Component } from "react";
+import React, {Component} from "react";
 import Header from "./components/Header";
 import CreateSecret from "./components/CreateSecret";
 import SecretList from "./components/SecretList";
@@ -9,13 +9,11 @@ class App extends Component {
     constructor(props) {
         super(props);
         this.state={
-            isFetching: false,
             secrets: []
         }
 }
 
 fetchSecrets () {
-    console.log("fetching data")
     fetch("/secrets")
     .then(res => res.json())
     .then(data => this.setState({secrets: data}))
@@ -36,6 +34,8 @@ componentDidMount () {
                 this.state.secrets.map((secret,index) => (
                     <SecretItem 
                         key={index}
+                        _id={secret._id}
+                        id= {index}
                         title={secret.title}
                         content={secret.content}
                     />
@@ -43,7 +43,8 @@ componentDidMount () {
             }
             <Footer />
             </div>
-        )}
+        )
+    }
 }
 
 export default App;
