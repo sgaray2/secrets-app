@@ -13,6 +13,7 @@ mongoose
   .connect("mongodb://localhost:27017/secrets", {
     useNewUrlParser: true,
     useUnifiedTopology: true,
+    useFindAndModify: false,
   })
   .catch((err) => {
     console.log("Connection error", err.message);
@@ -74,24 +75,24 @@ app
   /*update secrets endpoint*/
   app.route("/edit/:id")
   .patch((req,res) => {
-  
-  Secret.updateOne(
-    { "_id": req.params.id},
-    {$set: req.body})
-    .then((error) => {
-      if(!error) {
-        res.status(200).json({
-          success: true,
-          message: "Your secret has been updated succesfully"
-        })
-      } else {
-        res.status(400).json({
-          success: false,
-          message: "There was an error while trying to update the secret, please try again"
-        })
-      }
+
+      Secret.findByIdAndUpdate({_id: req.params.id},
+        {
+          title: req.body.title,
+          content: req.body.content
+        }, (error) => {
+          if(!error)
+          res.status(200).json({
+            success: true,
+            message: "Your secret has been updated succesfully"
+          });
+          else
+          res.status(400).json({
+            success: false,
+            message: "There was an error while trying to update the secret, please try again"
+          });
+        });
     });
-  });
 
   /*delete secrets endpoint*/
 app.route("/:id") 

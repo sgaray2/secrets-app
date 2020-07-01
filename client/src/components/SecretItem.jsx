@@ -3,12 +3,6 @@ import { Link } from "react-router-dom";
 
 
 class SecretItem extends Component {
-constructor(props){
-  super(props);
-  this.state= {
-    secretItem: ""
-  }
-}
 
   render() {
     return (
@@ -23,6 +17,5 @@ constructor(props){
       </div>)
       }
   }
-
 
 export default SecretItem;

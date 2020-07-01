@@ -108,13 +108,11 @@ else {
           />
           : null
         }
-
         {
         this.state.error ?
         <ErrorPopup 
           closeErrorPopup={this.toggleErrorPopup.bind(this)}
         /> : null
-
         }
         </div>
         </div>
