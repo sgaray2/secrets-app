@@ -1,16 +1,16 @@
 const express = require("express");
 const bodyParser = require("body-parser");
-const port = 5000;
+const port = process.env.PORT;
 const mongoose = require("mongoose");
 
 const app = express();
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
-app.use(express.static("public"));
+app.use(express.static(path.join(__dirname, '../client/build')))
 
 //creating connection to DB
 mongoose
-  .connect("mongodb://localhost:27017/secrets", {
+  .connect("mongodb+srv://admin-sabrina:sabrys23@cluster0-kaq8n.mongodb.net/<dbname>?retryWrites=true&w=majority/secrets", {
     useNewUrlParser: true,
     useUnifiedTopology: true,
     useFindAndModify: false,
@@ -114,7 +114,10 @@ app.route("/:id")
     });
 });
 
-
+//to change from production to local env
+if(port == null || port == "") {
+  port= 5000;
+}
 app.listen(port, () => {
-  console.log(`Server is running on port ${port}`);
+  console.log(`Server has started succesfully`);
 });
